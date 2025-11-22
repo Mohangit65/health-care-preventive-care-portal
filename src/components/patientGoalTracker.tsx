@@ -88,12 +88,12 @@ function PatientGoalTracker() {
   };
 
   return (
-    <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
+    <Container maxWidth={false} sx={{ mt: 4, mb: 4, width: '100%' }}>
       {/* Main Content Layout */}
-      <Grid container spacing={4}>
+      <Grid container spacing={4} sx={{ minHeight: '100vh' }}>
         
         {/* === Left Side (75% on medium/large screens: md={9}) === */}
-        <Grid item xs={12} md={9}>
+        <Grid item xs={12} md={9} sx={{ display: 'flex', flexDirection: 'column' }}>
           
           {/* Patient Info */}
           <Paper sx={{ p: 3, mb: 4, bgcolor: "#f8f9fa" }}>
@@ -308,19 +308,18 @@ function PatientGoalTracker() {
         </Grid>
 
         {/* === Right Side - History Section (25% on medium/large screens: md={3}) === */}
-        <Grid item xs={12} md={3}>
+        <Grid item xs={12} md={3} sx={{ display: 'flex' }}>
           <Paper 
             sx={{
               p: 2,
-              height: { xs: "400px", md: "500px" },
-              // Keeps the history sidebar visible when scrolling on desktop
-              position: { xs: "relative", md: "sticky" }, 
-              top: { xs: 0, md: 20 }, 
+              height: "500px",
+              width: '100%',
+              position: "sticky", 
+              top: 20, 
               background: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
               color: "white",
               borderRadius: 3,
               boxShadow: "0 10px 30px rgba(0,0,0,0.2)",
-              mt: { xs: 2, md: 0 },
             }}
           >
             <Box sx={{ display: "flex", alignItems: "center", mb: 3 }}>
@@ -333,7 +332,7 @@ function PatientGoalTracker() {
             {/* Scrollable History List */}
             <Box 
               sx={{
-                height: { xs: "300px", md: "400px" },
+                height: "400px",
                 overflowY: "auto",
                 pr: 1,
                 // Custom scrollbar styles for a cleaner look
