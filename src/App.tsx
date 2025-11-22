@@ -12,6 +12,7 @@ import { configureStore } from "@reduxjs/toolkit";
 import reducer from "./redux/mainReducer";
 import { Provider } from "react-redux";
 import { GlobalStyles } from "@mui/material";
+
 const theme = createTheme({
   palette: {
     primary: {
@@ -23,6 +24,11 @@ const theme = createTheme({
       main: "#0288D1",
       light: "#4FC3F7",
       dark: "#01579B",
+    },
+    accent: {
+      main: "#673AB7",
+      light: "#9572D2",
+      dark: "#482880",
     },
     background: {
       default: "#F0F7F7",
