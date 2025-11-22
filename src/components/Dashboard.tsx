@@ -47,7 +47,9 @@ const Dashboard = () => {
   const handleMenuOpen = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorEl(event.currentTarget);
   };
-
+  const handlePatientTracker = () =>{
+    navigate("/tracker");
+  }
   const handleMenuClose = () => {
     setAnchorEl(null);
   };
@@ -116,7 +118,7 @@ const Dashboard = () => {
             Wellness Dashboard
           </Typography>
           <IconButton color="inherit" sx={{ mr: 1 }}>
-            <TrackChanges />
+            <TrackChanges onClick={handlePatientTracker}/>
           </IconButton>
           <IconButton color="inherit" sx={{ mr: 2 }}>
             <Notifications />
