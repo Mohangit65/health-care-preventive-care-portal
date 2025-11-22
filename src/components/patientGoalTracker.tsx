@@ -81,7 +81,7 @@ const handleBack = () =>{
     };
     
     // Update daily tasks with new values
-    const updatedTasks = dailyTasks.map(task => {
+    let updatedTasks = dailyTasks.map(task => {
       if (task.unit === "steps" && dailyLog.steps) {
         const newCompleted = parseInt(dailyLog.steps);
         return { ...task, completed: newCompleted, status: newCompleted >= task.target ? "completed" : "incomplete" };
@@ -96,6 +96,19 @@ const handleBack = () =>{
       }
       return task;
     });
+
+    // Add custom goal as new task if provided
+    if (dailyLog.customGoal) {
+      const newTask = {
+        id: Date.now(),
+        task: dailyLog.customGoal,
+        target: 1,
+        completed: 1,
+        unit: "goal",
+        status: "completed"
+      };
+      updatedTasks = [...updatedTasks, newTask];
+    }
     
     setDailyTasks(updatedTasks);
     // Add new log to the beginning of the history array
